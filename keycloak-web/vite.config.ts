@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   server: {
+    port: 3000, // Port for the development server
     cors: true, // Allow CORS for the development server
     proxy: {
       '/api': {

@@ -1,21 +1,13 @@
-# Use the official Python image
-FROM python:3.12
+FROM python:3.12-slim
 
-# Set the working directory inside the container
 WORKDIR /app
 
-# Copy the Python API code and Poetry files to the container
-COPY ./api /app
-COPY pyproject.toml poetry.lock /app/
+COPY . /app
 
-# Install Poetry
 RUN pip install poetry==1.7.1
-
-# Install project dependencies using Poetry
 RUN poetry install
 
-# Expose port 5000 for the Flask app
-EXPOSE 5000
+EXPOSE 4000
 
-# Run the Flask app
+# Run app.py directly instead of as a module
 CMD ["poetry", "run", "python", "app.py", "-p", "4000"]
