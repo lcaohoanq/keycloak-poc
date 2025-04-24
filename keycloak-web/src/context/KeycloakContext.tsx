@@ -1,9 +1,4 @@
-import React, {
-  createContext,
-  useEffect,
-  useState,
-  useRef,
-} from 'react'
+import React, { createContext, useEffect, useState, useRef } from 'react'
 import Keycloak from 'keycloak-js'
 
 interface KeycloakContextProps {
@@ -40,6 +35,7 @@ const KeycloakProvider: React.FC<KeycloakProviderProps> = ({ children }) => {
       keycloakInstance
         .init({
           onLoad: 'check-sso',
+          redirectUri: window.location.origin,
         })
         .then((authenticated: boolean) => {
           setAuthenticated(authenticated)

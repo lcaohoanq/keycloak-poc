@@ -17,4 +17,4 @@ COPY ./src /app/src
 EXPOSE 3000
 
 # Run the development server
-CMD ["yarn", "run", "dev", "--port", "3000"]
+CMD ["yarn", "run", "dev"]

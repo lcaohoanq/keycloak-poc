@@ -29,11 +29,11 @@ services:
         condition: service_started
     restart: on-failure
 
-  keycloak-web-app:
-    build:
-      context: ./keycloak-web
-    ports:
-      - 3000:3000
+  # keycloak-web-app:
+  #   build:
+  #     context: ./keycloak-web
+  #   ports:
+  #     - 3000:3000
 
   postgres-auth:
     image: postgres:15
@@ -62,8 +62,8 @@ services:
     ports:
       - 8080:8080
     depends_on:
-      - postgres-auth: 
-          condition: service_healthy
+      postgres-auth: 
+        condition: service_healthy
     command:
       - start-dev
 
